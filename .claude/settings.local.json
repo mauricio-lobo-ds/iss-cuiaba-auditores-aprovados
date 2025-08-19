@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(copy:*)",
+      "Bash(Copy-Item \"D:\\Codigos\\iss-cuiaba-aprovados\\src\\data\\dados-aprovados.csv\" \"D:\\Codigos\\iss-cuiaba-aprovados\\public\\dados-aprovados.csv\")",
+      "Bash(node:*)",
+      "Bash(cp:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
