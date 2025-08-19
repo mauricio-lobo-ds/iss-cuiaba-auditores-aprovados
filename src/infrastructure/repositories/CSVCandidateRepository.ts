@@ -51,6 +51,9 @@ export class CSVCandidateRepository implements CandidateRepository {
               ac: toNumber(values[5] || '0'),
               pcd: toOptionalNumber(values[6] || ''),
               ni: toOptionalNumber(values[7] || ''),
+              formacao: values[8] || undefined,
+              experiencia: values[9] || undefined,
+              aprovacoes: values[10] || undefined,
               removed: false
             } as Candidate;
           });
@@ -137,6 +140,9 @@ TECNOLOGIA DA INFORMAÇÃO;850000545;Leonardo Code Santos;06/04/1993;135;20;7;`;
           ac: parseInt(values[5]),
           pcd: values[6] ? parseInt(values[6]) : null,
           ni: values[7] ? parseInt(values[7]) : null,
+          formacao: values[8] || undefined,
+          experiencia: values[9] || undefined,
+          aprovacoes: values[10] || undefined,
           removed: false
         };
       });

@@ -43,6 +43,18 @@ export class CandidateEntity {
     return { ...this.candidate };
   }
 
+  get formacao(): string | undefined {
+    return this.candidate.formacao;
+  }
+
+  get experiencia(): string | undefined {
+    return this.candidate.experiencia;
+  }
+
+  get aprovacoes(): string | undefined {
+    return this.candidate.aprovacoes;
+  }
+
   hasQuota(quota: 'PCD' | 'NI'): boolean {
     return quota === 'PCD' ? this.pcdPosition !== null : this.niPosition !== null;
   }

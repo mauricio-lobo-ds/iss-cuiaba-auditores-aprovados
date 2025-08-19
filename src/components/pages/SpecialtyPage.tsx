@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { FileText, Users, Monitor, List, Megaphone, ArrowLeft } from 'lucide-react';
+import { FileText, Users, Monitor, List, Megaphone, ArrowLeft, UserCheck } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '../ui/Card';
 import { Button } from '../ui/Button';
 import { CandidatesList } from '../features/CandidatesList';
 import { CallOrderList } from '../features/CallOrderList';
+import { CandidateProfiles } from '../features/CandidateProfiles';
 import { Specialty } from '../../types';
 
 const specialtyConfig = {
@@ -30,7 +31,7 @@ const specialtyConfig = {
 
 export const SpecialtyPage: React.FC = () => {
   const { specialty } = useParams<{ specialty: string }>();
-  const [activeTab, setActiveTab] = useState<'candidates' | 'callOrder'>('candidates');
+  const [activeTab, setActiveTab] = useState<'candidates' | 'callOrder' | 'profiles'>('candidates');
   const navigate = useNavigate();
 
   if (!specialty || !specialtyConfig[specialty as keyof typeof specialtyConfig]) {
@@ -99,13 +100,23 @@ export const SpecialtyPage: React.FC = () => {
               >
                 Ordem de Chamada
               </Button>
+              <Button
+                variant={activeTab === 'profiles' ? 'primary' : 'ghost'}
+                icon={UserCheck}
+                onClick={() => setActiveTab('profiles')}
+                className="rounded-b-none"
+              >
+                Perfil dos Chamados
+              </Button>
             </div>
           </CardHeader>
           <CardContent className="pt-6">
             {activeTab === 'candidates' ? (
               <CandidatesList specialty={config.name} />
-            ) : (
+            ) : activeTab === 'callOrder' ? (
               <CallOrderList specialty={config.name} />
+            ) : (
+              <CandidateProfiles specialty={config.name} />
             )}
           </CardContent>
         </Card>

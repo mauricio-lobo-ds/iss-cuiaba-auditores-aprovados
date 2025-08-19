@@ -8,6 +8,9 @@ export interface Candidate {
   ac: number;
   pcd: number | null;
   ni: number | null;
+  formacao?: string;
+  experiencia?: string;
+  aprovacoes?: string;
   removed?: boolean;
 }
 

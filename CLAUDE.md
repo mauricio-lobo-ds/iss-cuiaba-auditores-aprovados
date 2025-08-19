@@ -4,80 +4,98 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React + TypeScript application for managing approved candidates from ISS Cuiabá (Municipal Tax Inspector) public examination. The application manages candidate call orders with quota system (AC - General, PCD - People with Disabilities, NI - Black/Indigenous) across three specialties:
-
-- **DIREITO/PROCESSO TRIBUTÁRIO** (Tax Law/Process)
-- **GESTÃO TRIBUTÁRIA** (Tax Management) 
-- **TECNOLOGIA DA INFORMAÇÃO** (Information Technology)
+This is a React TypeScript application for managing call orders for approved candidates in a tax auditor position competition for Cuiabá-MT. The app handles three specialties: "DIREITO/PROCESSO TRIBUTÁRIO", "GESTÃO TRIBUTÁRIA", and "TECNOLOGIA DA INFORMAÇÃO".
 
 ## Development Commands
 
-- **Development server**: `npm run dev`
-- **Build for production**: `npm run build`
-- **Lint code**: `npm run lint`
-- **Preview production build**: `npm run preview`
+```bash
+# Start development server
+npm run dev
 
-## Architecture
+# Build for production
+vite build
 
-### Clean Architecture Structure
+# Lint code
+npm run lint
 
-The codebase follows Clean Architecture principles with clear separation of concerns:
-
-```
-src/
-├── domain/           # Business logic and entities
-│   ├── entities/     # Domain entities (Candidate)
-│   ├── repositories/ # Repository interfaces
-│   └── usecases/     # Business use cases
-├── infrastructure/   # External adapters
-│   └── repositories/ # Repository implementations (CSV, LocalStorage)
-├── services/         # Application services coordinating use cases
-└── components/       # React UI components
+# Preview production build
+npm run preview
 ```
 
-### Key Domain Concepts
-
-- **Candidate Entity** (`src/domain/entities/Candidate.ts`): Encapsulates candidate business logic with methods for quota checking, position calculation, and state management
-- **Call Order System**: Manages the sequential calling of candidates following predefined quota patterns
-- **Quota Types**: AC (General), PCD (People with Disabilities), NI (Black/Indigenous)
-- **Position Management**: Candidates can be removed/restored, affecting subsequent call order
-
-### Data Flow
-
-1. **Data Source**: CSV file (`src/data/dados-aprovados.csv`) contains approved candidates
-2. **Repository Pattern**: `CSVCandidateRepository` loads candidates, `LocalStorageCallOrderRepository` persists call order state
-3. **Services Layer**: `CallOrderService` and `CandidateService` coordinate between use cases and repositories
-4. **State Management**: React hooks (`useCallOrder`, `useCandidates`, `useExport`) manage component state
-5. **UI Components**: Feature components handle specific functionality (CallOrderList, CandidatesList, etc.)
-
-## Key Business Logic
-
-### Call Order Sequences
-
-Each specialty has a predefined call sequence pattern defined in `CallOrderService:98-115`:
-- 20-position repeating patterns with specific AC/PCD/NI distribution
-- Patterns ensure fair quota representation in candidate calling
-
-### Export Functionality
-
-The application supports exporting call orders to:
-- **PDF**: Using jsPDF with html2canvas for visual rendering
-- **Excel**: Using xlsx library for structured data export
-
-## Technology Stack
+## Tech Stack
 
 - **Frontend**: React 18 + TypeScript + Vite
 - **Styling**: Tailwind CSS
-- **Routing**: React Router DOM
 - **Icons**: Lucide React
-- **PDF Export**: jsPDF + html2canvas  
-- **Excel Export**: xlsx
-- **Date Handling**: date-fns
+- **Routing**: React Router DOM
 - **Forms**: React Hook Form
+- **Date handling**: date-fns
+- **Export functionality**: jsPDF, html2canvas, xlsx
 
-## File Structure Notes
+## Architecture
 
-- **Types**: All TypeScript interfaces are centralized in `src/types/index.ts`
-- **UI Components**: Reusable components in `src/components/ui/`
-- **Feature Components**: Domain-specific components in `src/components/features/`
-- **Hooks**: Custom React hooks for state management in `src/hooks/`
+The project follows Clean Architecture principles with clear separation of concerns:
+
+### Domain Layer (`src/domain/`)
+- **Entities**: `Candidate.ts` - Core business entity with methods for candidate operations
+- **Use Cases**: `CallOrderUseCase.ts` - Contains the complex call order algorithm logic
+- **Repositories**: Interface definitions for data access
+
+### Infrastructure Layer (`src/infrastructure/`)
+- **Repositories**: Concrete implementations (CSV parsing, localStorage)
+
+### Application Layer (`src/services/`)
+- Application services that orchestrate domain operations
+
+### Presentation Layer (`src/components/`)
+- **ui/**: Reusable UI components (Button, Card, Input, etc.)
+- **layout/**: Layout components (Header, Footer)
+- **pages/**: Page components (HomePage, SpecialtyPage)
+- **features/**: Feature-specific components (CallOrderList, CandidatesList, CandidateProfiles, etc.)
+
+### Data Layer (`src/data/`)
+- Static CSV data file with candidate information
+
+## Key Business Logic
+
+### Call Order Algorithm
+The most critical part of the application is in `CallOrderUseCase.ts:20-76`. It implements a complex algorithm that:
+
+1. Uses predefined sequences for each specialty (different for "GESTÃO TRIBUTÁRIA" vs others)
+2. Manages three quota types: AC (General), PCD (Disabled), NI (Black/Indigenous)
+3. Implements fallback logic when quota candidates are exhausted
+4. Handles candidate removal and sequence modification with automatic recalculation
+
+### Candidate Types
+- **AC**: General competition position
+- **PCD**: Disabled persons quota
+- **NI**: Black and Indigenous quota
+
+Candidates can be in multiple quotas simultaneously and are called by the most favorable position.
+
+## Important Files
+
+- `src/types/index.ts` - Core TypeScript interfaces
+- `src/domain/usecases/CallOrderUseCase.ts` - Main business logic
+- `src/data/dados-aprovados.csv` - Candidate data (semicolon-separated)
+- `src/hooks/useCallOrder.ts` - React hook for call order state management
+
+## Data Format
+
+CSV structure (semicolon-separated):
+```
+Especialidade;Inscrição;Nome;Nascimento;Nota;AC;PCD;NI;Formacao;Experiencia;Aprovacoes
+```
+
+Empty quota fields are represented as empty strings, not null values. The new profile fields (Formacao, Experiencia, Aprovacoes) are optional and may be empty.
+
+## State Management
+
+Uses React Context + useReducer pattern for complex state management, with localStorage persistence for maintaining state between sessions.
+
+## Specialty-Specific Sequences
+
+- **GESTÃO TRIBUTÁRIA**: Position 5=AC, Position 6=PCD
+- **DIREITO/PROCESSO TRIBUTÁRIO & TECNOLOGIA DA INFORMAÇÃO**: Position 5=PCD, Position 6=AC
+
+These sequences are editable through the UI and trigger full recalculation when modified.
