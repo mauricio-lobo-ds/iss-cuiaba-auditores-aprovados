@@ -18,7 +18,7 @@ const specialties = [
     title: 'GESTÃO TRIBUTÁRIA',
     description: 'Especialidade em gestão e administração tributária',
     icon: Users,
-    color: 'bg-green-500',
+    color: 'bg-blue-500',
     path: '/gestao'
   },
   {
@@ -26,7 +26,7 @@ const specialties = [
     title: 'TECNOLOGIA DA INFORMAÇÃO',
     description: 'Especialidade em sistemas e tecnologia da informação',
     icon: Monitor,
-    color: 'bg-purple-500',
+    color: 'bg-blue-500',
     path: '/tecnologia'
   }
 ];
@@ -88,7 +88,7 @@ export const HomePage: React.FC = () => {
                     }}
                     className="w-full group-hover:bg-blue-700"
                   >
-                    Acessar
+                    Acessar Aprovados
                   </Button>
                 </CardContent>
               </Card>

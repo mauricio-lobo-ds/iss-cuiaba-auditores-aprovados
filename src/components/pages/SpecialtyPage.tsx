@@ -51,8 +51,8 @@ export const SpecialtyPage: React.FC = () => {
     <div className="min-h-screen bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className={`${config.bgColor} rounded-lg p-6 mb-8`}>
-          <div className="flex items-center justify-between">
+        <div className={`${config.bgColor} rounded-lg p-4 md:p-6 mb-8`}>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="flex items-center space-x-4">
               <div className={`w-12 h-12 bg-white rounded-lg flex items-center justify-center`}>
                 <IconComponent className={`w-6 h-6 ${config.color}`} />
@@ -66,13 +66,16 @@ export const SpecialtyPage: React.FC = () => {
                 </p>
               </div>
             </div>
-            <Button
-              variant="ghost"
-              icon={ArrowLeft}
-              onClick={() => navigate('/')}
-            >
-              Voltar
-            </Button>
+            <div className="md:self-auto">
+              <Button
+                variant="ghost"
+                icon={ArrowLeft}
+                onClick={() => navigate('/')}
+                className="w-full md:w-auto"
+              >
+                Voltar
+              </Button>
+            </div>
           </div>
         </div>
 
