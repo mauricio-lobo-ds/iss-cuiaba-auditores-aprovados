@@ -5,11 +5,17 @@ export const Footer: React.FC = () => {
     <footer className="bg-slate-50 border-t border-slate-200 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center">
-          <p className="text-slate-600 text-sm">
-            © 2025 Sistema de Ordenação de Candidatos - Concurso Auditor Fiscal Tributário Cuiabá-MT
-          </p>
+
           <p className="text-slate-500 text-xs mt-2">
-            Desenvolvido seguindo Clean Architecture e princípios SOLID
+            Desenvolvido por{' '}
+            <a
+              href={(import.meta as any).env?.VITE_INSTAGRAM_URL || 'https://www.instagram.com/mauriciomirandall/'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Mauricio Miranda Lobo Leite
+            </a>
           </p>
         </div>
       </div>

@@ -39,11 +39,19 @@ export const HomePage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            Sistema de Ordenação de Candidatos
+          <h1 className="text-3xl md:text-3xl font-bold text-slate-900 mb-6">
+            Auditor Fiscal Tributário da Receita Municipal
           </h1>
           <p className="text-xl text-slate-600 mb-4">
-            Concurso Auditor Fiscal Tributário
+            Concurso -{' '}
+            <a
+              href="https://conhecimento.fgv.br/concursos/smfcuiaba24"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Edital nº 01/2024
+            </a>
           </p>
           <p className="text-lg text-slate-500">
             Cuiabá - MT
@@ -71,9 +79,6 @@ export const HomePage: React.FC = () => {
                   </h3>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <p className="text-slate-600 mb-6">
-                    {specialty.description}
-                  </p>
                   <Button
                     variant="primary"
                     icon={ArrowRight}
@@ -83,7 +88,7 @@ export const HomePage: React.FC = () => {
                     }}
                     className="w-full group-hover:bg-blue-700"
                   >
-                    Acessar Especialidade
+                    Acessar
                   </Button>
                 </CardContent>
               </Card>
@@ -94,7 +99,7 @@ export const HomePage: React.FC = () => {
         {/* Features Section */}
         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
           <h2 className="text-3xl font-bold text-slate-900 text-center mb-8">
-            Funcionalidades do Sistema
+            Funcionalidades
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-6">
@@ -104,7 +109,7 @@ export const HomePage: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-slate-900 mb-2">Lista de Aprovados</h3>
-                  <p className="text-slate-600">Visualize todos os candidatos aprovados com filtros avançados por nome, classificação e cotas.</p>
+                  <p className="text-slate-600">Visualize todos os candidatos aprovados com filtros por nome, classificação e cotas.</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -113,7 +118,7 @@ export const HomePage: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-slate-900 mb-2">Ordem de Chamada</h3>
-                  <p className="text-slate-600">Geração automática da ordem de chamada seguindo as regras específicas de cada especialidade.</p>
+                  <p className="text-slate-600">Geração automática da ordem de chamada conforme os arts. 23 e 24 do Decreto nº 7.436, de 25 de setembro de 2019.</p>
                 </div>
               </div>
             </div>

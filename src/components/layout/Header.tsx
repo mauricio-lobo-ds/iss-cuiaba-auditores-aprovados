@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, FileText, Users, Monitor } from 'lucide-react';
+import { Home, Medal, Users, Monitor, FileText } from 'lucide-react';
 
 export const Header: React.FC = () => {
   const location = useLocation();
@@ -15,9 +15,9 @@ export const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <FileText className="w-8 h-8 text-blue-600" />
+              <Medal className="w-8 h-8 text-yellow-500" />
               <span className="text-xl font-bold text-slate-900">
-                Sistema de Ordenação
+                Aprovados - Auditor Fiscal Tributário - Cuiabá
               </span>
             </Link>
           </div>
