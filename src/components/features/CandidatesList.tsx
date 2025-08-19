@@ -143,9 +143,9 @@ export const CandidatesList: React.FC<CandidatesListProps> = ({ specialty }) => 
       {/* Table */}
       <div id="candidates-table" className="bg-white rounded-lg shadow overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-slate-200 table-fixed">
+          <table className="min-w-full divide-y divide-slate-200 table-fixed align-middle">
             <thead className="bg-slate-50">
-              <tr>
+              <tr className="align-middle">
                 <th className="w-28 px-3 py-2 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                   Inscrição
                 </th>

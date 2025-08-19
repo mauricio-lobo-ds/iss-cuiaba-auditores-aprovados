@@ -26,12 +26,13 @@ export const useExport = () => {
 
   const exportToPDF = useCallback(async (
     specialty: Specialty,
-    elementId: string
+    elementId: string,
+    options?: { title?: string; subtitle?: string; removedCandidates?: Candidate[] }
   ) => {
     try {
       setLoading(true);
       setError(null);
-      await exportService.exportToPDF(specialty, elementId);
+      await exportService.exportToPDF(specialty, elementId, options);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to export to PDF');
     } finally {

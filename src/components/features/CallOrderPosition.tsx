@@ -58,14 +58,14 @@ export const CallOrderPosition: React.FC<CallOrderPositionProps> = ({
 
   return (
     <tr className={`group ${isEven ? 'bg-white' : 'bg-slate-50'} hover:bg-blue-50 transition-colors`}>
-      <td className="w-20 px-3 py-2 whitespace-nowrap">
+      <td className="w-20 px-3 py-2 whitespace-nowrap align-middle">
         <div className="flex items-center">
           <span className="text-lg font-bold text-slate-900 mr-2">
             {position.position}º
           </span>
         </div>
       </td>
-      <td className="w-20 px-3 py-2 whitespace-nowrap">
+      <td className="w-20 px-3 py-2 whitespace-nowrap align-middle">
         {isEditing ? (
           <div className="flex items-center space-x-2">
             <Select
@@ -112,12 +112,12 @@ export const CallOrderPosition: React.FC<CallOrderPositionProps> = ({
           </div>
         )}
       </td>
-      <td className="w-28 px-3 py-2 whitespace-nowrap text-sm font-medium text-slate-900">
+      <td className="w-28 px-3 py-2 whitespace-nowrap text-sm font-medium text-slate-900 align-middle">
         {position.candidate?.inscricao || (
           <span className="text-slate-400 italic">Vago</span>
         )}
       </td>
-      <td className="px-3 py-2 whitespace-nowrap text-sm text-slate-900">
+      <td className="px-3 py-2 whitespace-nowrap text-sm text-slate-900 align-middle">
         {position.candidate?.nome || (
           <div className="flex items-center text-slate-400 italic">
             <AlertTriangle className="w-4 h-4 mr-1" />
@@ -125,12 +125,12 @@ export const CallOrderPosition: React.FC<CallOrderPositionProps> = ({
           </div>
         )}
       </td>
-      <td className="w-16 px-3 py-2 whitespace-nowrap text-sm font-semibold text-slate-900">
+      <td className="w-16 px-3 py-2 whitespace-nowrap text-sm font-semibold text-slate-900 align-middle">
         {position.candidate?.nota || (
           <span className="text-slate-400">-</span>
         )}
       </td>
-      <td className="w-28 px-3 py-2 whitespace-nowrap text-sm text-slate-900">
+      <td className="w-28 px-3 py-2 whitespace-nowrap text-sm text-slate-900 align-middle export-hide-pdf">
         {position.candidate && (
           <Button
             variant="error"

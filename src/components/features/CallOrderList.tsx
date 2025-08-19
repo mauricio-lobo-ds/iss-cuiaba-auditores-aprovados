@@ -37,7 +37,15 @@ export const CallOrderList: React.FC<CallOrderListProps> = ({ specialty }) => {
   };
 
   const handleExportPDF = async () => {
-    await exportToPDF(specialty, 'call-order-table');
+    await exportToPDF(
+      specialty,
+      'call-order-table',
+      {
+        title: 'Ordem de Chamada',
+        subtitle: 'Conforme os arts. 23 e 24 do Decreto nº 7.436, de 25 de setembro de 2019',
+        removedCandidates: callOrderState.removedCandidates
+      }
+    );
   };
 
   if (candidatesLoading || callOrderState.loading) {
@@ -119,9 +127,9 @@ export const CallOrderList: React.FC<CallOrderListProps> = ({ specialty }) => {
         </CardHeader>
         <CardContent>
           <div id="call-order-table" className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-slate-200 table-fixed">
+            <table className="min-w-full divide-y divide-slate-200 table-fixed align-middle">
               <thead className="bg-slate-50">
-                <tr>
+                <tr className="align-middle">
                   <th className="w-20 px-3 py-2 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                     Posição
                   </th>
@@ -137,7 +145,7 @@ export const CallOrderList: React.FC<CallOrderListProps> = ({ specialty }) => {
                   <th className="w-16 px-3 py-2 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                     Nota
                   </th>
-                  <th className="w-28 px-3 py-2 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+                  <th className="w-28 px-3 py-2 text-left text-xs font-medium text-slate-500 uppercase tracking-wider export-hide-pdf">
                     Ações
                   </th>
                 </tr>
