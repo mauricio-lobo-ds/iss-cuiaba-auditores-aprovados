@@ -48,7 +48,7 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
         </Badge>
       </div>
 
-      <div id="candidate-profiles-content" className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div id="candidate-profiles-content" className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {calledCandidates.map((candidate, index) => {
           const profile = getProfile(candidate.nome);
           const experienciaDetails = profile ? getExperienciaDetails(profile.experiencia_profissional) : null;
@@ -71,18 +71,18 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
           const age = calculateAge(candidate.nascimento);
           
           return (
-            <Card key={candidate.inscricao} className="hover:shadow-md transition-shadow">
+            <Card key={candidate.inscricao} className="hover:shadow-md transition-shadow overflow-hidden">
               <CardHeader className="pb-3">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <h3 className="font-medium text-slate-900 leading-tight">
+                <div className="flex items-start justify-between min-w-0">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-medium text-slate-900 leading-tight break-words">
                       {candidate.nome}
                     </h3>
-                    <p className="text-sm text-slate-500 mt-1">
+                    <p className="text-sm text-slate-500 mt-1 break-words">
                       Inscrição: {candidate.inscricao}
                     </p>
                   </div>
-                  <Badge variant="secondary" className="ml-2 text-xs">
+                  <Badge variant="secondary" className="ml-2 text-xs flex-shrink-0">
                     #{index + 1}
                   </Badge>
                 </div>
@@ -90,40 +90,40 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
               
               <CardContent className="space-y-3">
                 {/* Data de Nascimento */}
-                <div className="flex items-center space-x-2">
-                  <Calendar className="w-4 h-4 text-slate-400" />
-                  <span className="text-sm text-slate-600">
+                <div className="flex items-center space-x-2 min-w-0">
+                  <Calendar className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                  <span className="text-sm text-slate-600 break-words">
                     {candidate.nascimento} ({age} anos)
                   </span>
                 </div>
 
                 {/* Formação */}
-                <div className="flex items-start space-x-2">
-                  <GraduationCap className="w-4 h-4 text-blue-500 mt-0.5" />
-                  <div className="flex-1">
+                <div className="flex items-start space-x-2 min-w-0">
+                  <GraduationCap className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
                     <p className="text-xs text-slate-500 uppercase tracking-wide">
                       Formação
                     </p>
                     <div className="text-sm text-slate-700">
                       {profile ? (
                         formatFormacao(profile.formacao).split('\n').map((linha, i) => (
-                          <p key={i} className="mb-1 last:mb-0">{linha}</p>
+                          <p key={i} className="mb-1 last:mb-0 break-words">{linha}</p>
                         ))
                       ) : (
-                        <p>{candidate.formacao || 'Não informado'}</p>
+                        <p className="break-words">{candidate.formacao || 'Não informado'}</p>
                       )}
                     </div>
                   </div>
                 </div>
 
                 {/* Experiência */}
-                <div className="flex items-start space-x-2">
-                  <Briefcase className="w-4 h-4 text-blue-500 mt-0.5" />
-                  <div className="flex-1">
+                <div className="flex items-start space-x-2 min-w-0">
+                  <Briefcase className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
                     <p className="text-xs text-slate-500 uppercase tracking-wide">
                       Experiência
                     </p>
-                    <p className="text-sm text-slate-700">
+                    <p className="text-sm text-slate-700 break-words">
                       {profile ? formatExperiencia(profile.experiencia_profissional) : (candidate.experiencia || 'Não informado')}
                     </p>
                     
@@ -133,7 +133,7 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
                         <p className="text-xs text-slate-500 mb-1">Principais atividades:</p>
                         <div className="space-y-0.5">
                           {experienciaDetails.activities.map((atividade, i) => (
-                            <p key={i} className="text-xs text-slate-600">
+                            <p key={i} className="text-xs text-slate-600 break-words">
                               • {atividade}
                             </p>
                           ))}
@@ -147,7 +147,7 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
                         <p className="text-xs text-slate-500 mb-1">Expertise profissional:</p>
                         <div className="space-y-0.5">
                           {experienciaDetails.expertise.map((exp, i) => (
-                            <p key={i} className="text-xs text-slate-600">
+                            <p key={i} className="text-xs text-slate-600 break-words">
                               • {exp}
                             </p>
                           ))}
@@ -159,7 +159,7 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
                     {experienciaDetails?.systems.length > 0 && (
                       <div className="mt-2">
                         <p className="text-xs text-slate-500 mb-1">Sistemas/Tecnologias:</p>
-                        <p className="text-xs text-slate-600">
+                        <p className="text-xs text-slate-600 break-words">
                           {experienciaDetails.systems.join(', ')}
                         </p>
                       </div>
@@ -171,7 +171,7 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
                         <p className="text-xs text-slate-500 mb-1">Expertise geral:</p>
                         <div className="space-y-0.5">
                           {profile.expertise.map((exp, i) => (
-                            <p key={i} className="text-xs text-slate-600">
+                            <p key={i} className="text-xs text-slate-600 break-words">
                               • {exp}
                             </p>
                           ))}
@@ -182,19 +182,19 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
                 </div>
 
                 {/* Aprovações */}
-                <div className="flex items-start space-x-2">
-                  <Award className="w-4 h-4 text-green-500 mt-0.5" />
-                  <div className="flex-1">
+                <div className="flex items-start space-x-2 min-w-0">
+                  <Award className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
                     <p className="text-xs text-slate-500 uppercase tracking-wide">
                       Aprovações
                     </p>
                     <div className="text-sm text-slate-700">
                       {profile ? (
                         formatAprovacoes(profile.aprovacoes).split('\n').map((linha, i) => (
-                          <p key={i} className="mb-1 last:mb-0">{linha}</p>
+                          <p key={i} className="mb-1 last:mb-0 break-words">{linha}</p>
                         ))
                       ) : (
-                        <p>{candidate.aprovacoes || 'Não informado'}</p>
+                        <p className="break-words">{candidate.aprovacoes || 'Não informado'}</p>
                       )}
                     </div>
                   </div>
