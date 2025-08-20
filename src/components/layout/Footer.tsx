@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
           <p className="text-slate-500 text-xs mt-2">
             Desenvolvido por{' '}
             <a
-              href={(import.meta as any).env?.VITE_INSTAGRAM_URL || 'https://www.instagram.com/mauriciomirandall/'}
+              href={(import.meta as any).env?.VITE_INSTAGRAM_URL || 'https://www.linkedin.com/in/mauricio-lobo-ds/'}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
