@@ -41,7 +41,7 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
     <div className="space-y-6 pb-8">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold text-slate-900">
-          Perfil dos Candidatos Chamados
+          Perfil dos Aprovados
         </h2>
         <Badge variant="outline" className="text-sm">
           {calledCandidates.length} candidatos

@@ -106,7 +106,7 @@ export const SpecialtyPage: React.FC = () => {
                 onClick={() => setActiveTab('profiles')}
                 className="rounded-b-none"
               >
-                Perfil dos Chamados
+                Perfil dos Aprovados
               </Button>
             </div>
           </CardHeader>
