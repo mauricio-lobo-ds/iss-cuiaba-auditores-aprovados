@@ -87,8 +87,7 @@
       "aprovacoes": [
         {
           "concurso": "Gestão Tributária",
-          "classificacao": "1",
-          "posicao": "1° Lugar"
+          "classificacao": "1"
         }
       ]
     },
@@ -163,8 +162,7 @@
         {
           "concurso": "TJGO",
           "classificacao": "1",
-          "categoria": "PCD",
-          "posicao": "1º PCD"
+          "categoria": "PCD"
         }
       ]
     },
@@ -395,39 +393,24 @@
       ],
       "aprovacoes": [
         {
-          "concurso": "Auditor Fiscal da Receita Estadual da SEFAZ MG",
-          "classificacao": "769",
-          "categoria": "ampla concorrência",
-          "situacao": "CR",
-          "ano": "2023"
+          "concurso": "ISS/CUIABA",
+          "classificacao": "7"
         },
         {
-          "concurso": "Auditor Fiscal da Receita Municipal da SEMFAZ Rio de Janeiro",
-          "classificacao": "301",
-          "categoria": "ampla concorrência",
-          "situacao": "CR",
-          "ano": "2023"
+          "concurso": "ISS/RJ",
+          "classificacao": "301"
         },
         {
-          "concurso": "Auditor Fiscal da Receita Estadual do Acre",
-          "classificacao": "36",
-          "categoria": "ampla concorrência",
-          "situacao": "VAGA",
-          "ano": "2024"
+          "concurso": "SEFAZ/PARANA",
+          "classificacao": "14"
         },
         {
-          "concurso": "Auditor Fiscal da Receita Municipal de Cuiabá",
-          "classificacao": "7",
-          "categoria": "ampla concorrência",
-          "situacao": "CR",
-          "ano": "2024"
+          "concurso": "SEFAZ/ACRE",
+          "classificacao": "36"
         },
         {
-          "concurso": "Auditor Fiscal da Receita Estadual do Paraná",
-          "classificacao": "14",
-          "categoria": "ampla concorrência",
-          "situacao": "VAGA",
-          "ano": "2025"
+          "concurso": "SEFAZ/MG",
+          "classificacao": "769"
         }
       ]
     },
@@ -549,7 +532,6 @@
           "concurso": "TJDFT",
           "cargo": "Analista Judiciário - Especialidade Análise de Dados",
           "classificacao": "3",
-          "posicao": "3º lugar",
           "situacao": "Nomeado nas Vagas + Empossado",
           "ano": "2022"
         },
@@ -557,14 +539,12 @@
           "concurso": "TRF-1",
           "cargo": "Analista Judiciário - Especialidade Análise de Dados",
           "classificacao": "4",
-          "posicao": "4º lugar",
           "ano": "2024"
         },
         {
           "concurso": "STN",
           "cargo": "Auditor Federal de Finanças e Controle - Transformação digital",
           "classificacao": "5",
-          "posicao": "5º lugar",
           "situacao": "Nomeado nas Vagas e Empossado",
           "ano": "2024"
         },
@@ -572,7 +552,6 @@
           "concurso": "ISS Cuiabá",
           "cargo": "Auditor Fiscal de TI",
           "classificacao": "2",
-          "posicao": "2º lugar",
           "categoria": "PPP",
           "situacao": "CR",
           "ano": "2024"
@@ -581,7 +560,6 @@
           "concurso": "BNDES",
           "cargo": "Cientista de Dados",
           "classificacao": "13",
-          "posicao": "13º lugar",
           "situacao": "CR nomeado",
           "ano": "2024"
         },
@@ -589,7 +567,6 @@
           "concurso": "SEFAZ MG",
           "cargo": "Auditor fiscal de TI",
           "classificacao": "104",
-          "posicao": "104º lugar",
           "situacao": "CR - próximo da lista de chamada"
         }
       ]
@@ -616,13 +593,11 @@
       "aprovacoes": [
         {
           "concurso": "ISS CUIABÁ",
-          "classificacao": "15",
-          "posicao": "15º lugar"
+          "classificacao": "15"
         },
         {
           "concurso": "SEFAZ AMAZONAS",
-          "classificacao": "166",
-          "posicao": "166º lugar"
+          "classificacao": "166"
         }
       ]
     },
@@ -676,18 +651,15 @@
       "aprovacoes": [
         {
           "concurso": "ISS - Piracicaba",
-          "classificacao": "1",
-          "posicao": "1º Lugar"
+          "classificacao": "1"
         },
         {
           "concurso": "ISS - Santa Barbara do Oeste",
-          "classificacao": "7",
-          "posicao": "7º Lugar"
+          "classificacao": "7"
         },
         {
           "concurso": "ISS - Catanduva",
-          "classificacao": "8",
-          "posicao": "8º Lugar"
+          "classificacao": "8"
         },
         {
           "concurso": "Tribunal de Contas do Estado de São Paulo",
@@ -743,18 +715,15 @@
       "aprovacoes": [
         {
           "concurso": "TCE/ES",
-          "classificacao": "4",
-          "posicao": "4º Lugar"
+          "classificacao": "4"
         },
         {
           "concurso": "TRT15",
-          "classificacao": "3",
-          "posicao": "3º Lugar"
+          "classificacao": "3"
         },
         {
           "concurso": "ISS-Cuiabá",
-          "classificacao": "3",
-          "posicao": "3º Lugar"
+          "classificacao": "3"
         }
       ]
     },
@@ -881,22 +850,23 @@
           "concurso": "EAOEAR",
           "cargo": "Engenheiro Civil de Carreira - FAB",
           "classificacao": "2",
-          "posicao": "2º Lugar",
           "ano": "2015"
         },
         {
           "concurso": "MPO",
           "cargo": "Analista de Planejamento e Orçamento - Gestão de Dados",
           "classificacao": "15",
-          "posicao": "15º Lugar",
           "ano": "2024"
         },
         {
           "concurso": "TCE-SP",
           "cargo": "Auditor de Controle Externo",
           "classificacao": "69",
-          "posicao": "69º Lugar",
           "ano": "2025"
+        },
+        {
+          "concurso": "SEFAZ-MG",
+          "classificacao": "628"
         }
       ]
     },
@@ -920,23 +890,19 @@
       "aprovacoes": [
         {
           "concurso": "Agente de Polícia Federal",
-          "classificacao": "48",
-          "posicao": "quadragésimo oitavo lugar"
+          "classificacao": "48"
         },
         {
           "concurso": "ISS RJ",
-          "classificacao": "6",
-          "posicao": "Sexto lugar"
+          "classificacao": "6"
         },
         {
           "concurso": "ISS Cuiabá",
-          "classificacao": "5",
-          "posicao": "Quinto lugar"
+          "classificacao": "5"
         },
         {
           "concurso": "SEFAZ RJ",
-          "classificacao": "48",
-          "posicao": "quadragésimo oitavo lugar"
+          "classificacao": "48"
         }
       ]
     },
@@ -967,9 +933,7 @@
         {
           "concurso": "ISS Cuiabá",
           "especialidade": "Direito/Processo Tributário",
-          "classificacao": "1",
-          "posicao": "1º colocado"
-        }
+          "classificacao": "1"        }
       ]
     },
     {
@@ -1040,24 +1004,16 @@
       "aprovacoes": [
         {
           "concurso": "Auditor Fiscal - Gestão Tributária - Cuiabá/MT",
-          "classificacao": "4",
-          "posicao": "4º"
-        },
+          "classificacao": "4"        },
         {
           "concurso": "Auditor Fiscal - (lista universal) Porto Alegre/RS",
-          "classificacao": "16",
-          "posicao": "16º"
-        },
+          "classificacao": "16"        },
         {
           "concurso": "Auditor Fiscal - Jaboatão dos Guararapes/PE",
-          "classificacao": "12",
-          "posicao": "12º"
-        },
+          "classificacao": "12"        },
         {
           "concurso": "Auditor Fiscal - Estado de Minas Gerais",
-          "classificacao": "747",
-          "posicao": "747º"
-        }
+          "classificacao": "747"        }
       ]
     },
     {
@@ -1164,19 +1120,13 @@
         },
         {
           "concurso": "Analista jurídico MP-MS",
-          "classificacao": "116",
-          "posicao": "116"
-        },
+          "classificacao": "116"        },
         {
           "concurso": "Analista jurídico TJ-SC",
-          "classificacao": "57",
-          "posicao": "57"
-        },
+          "classificacao": "57"        },
         {
           "concurso": "Analista jurídico TRE-MS",
-          "classificacao": "9",
-          "posicao": "9"
-        }
+          "classificacao": "9"        }
       ]
     },
     {
@@ -1243,15 +1193,11 @@
       "aprovacoes": [
         {
           "concurso": "Banco de Brasília (BRB)",
-          "classificacao": "59",
-          "posicao": "59º"
-        },
+          "classificacao": "59"        },
         {
           "concurso": "Controladoria Geral da União (CGU)",
           "especialidade": "TI",
-          "classificacao": "6",
-          "posicao": "6º"
-        }
+          "classificacao": "6"        }
       ]
     },
     {
@@ -1287,42 +1233,36 @@
         {
           "concurso": "IBAMA",
           "classificacao": "35",
-          "posicao": "35º lugar",
           "categoria": "ampla",
           "ano": "2005"
         },
         {
           "concurso": "CGU",
           "classificacao": "84",
-          "posicao": "84º lugar",
           "categoria": "ampla",
           "ano": "2006"
         },
         {
           "concurso": "ISS RJ",
           "classificacao": "5",
-          "posicao": "5º lugar",
           "categoria": "cotas",
           "ano": "2023"
         },
         {
           "concurso": "STN",
           "classificacao": "5",
-          "posicao": "5º lugar",
           "categoria": "cotas",
           "ano": "2024"
         },
         {
           "concurso": "Cage RS",
           "classificacao": "2",
-          "posicao": "2º lugar",
           "categoria": "cotas",
           "ano": "2025"
         },
         {
           "concurso": "ISS Cuiabá",
           "classificacao": "2",
-          "posicao": "2º lugar",
           "categoria": "ampla",
           "ano": "2025"
         }
@@ -1363,19 +1303,13 @@
       "aprovacoes": [
         {
           "concurso": "Sefaz RR",
-          "classificacao": "8",
-          "posicao": "8º"
-        },
+          "classificacao": "8"        },
         {
           "concurso": "ISS Cuiabá",
-          "classificacao": "1",
-          "posicao": "1º"
-        },
+          "classificacao": "1"        },
         {
           "concurso": "CAGE RS",
-          "classificacao": "9",
-          "posicao": "9º"
-        }
+          "classificacao": "9"        }
       ]
     },
     {
@@ -1428,9 +1362,7 @@
       "aprovacoes": [
         {
           "concurso": "SEFAZ AP",
-          "classificacao": "18",
-          "posicao": "18º"
-        }
+          "classificacao": "18"        }
       ]
     },
     {
@@ -1458,14 +1390,10 @@
       "aprovacoes": [
         {
           "concurso": "Analista em Tecnologia da Informação",
-          "classificacao": "4",
-          "posicao": "4º"
-        },
+          "classificacao": "4"        },
         {
           "concurso": "Agente Administrativo - Câmara de Rondonópolis",
-          "classificacao": "1",
-          "posicao": "1º"
-        }
+          "classificacao": "1"        }
       ]
     },
     {
@@ -1491,24 +1419,16 @@
       "aprovacoes": [
         {
           "concurso": "Auditor Fiscal - Catanduva",
-          "classificacao": "11",
-          "posicao": "11º"
-        },
+          "classificacao": "11"        },
         {
           "concurso": "Auditor Fiscal - Londrina",
-          "classificacao": "16",
-          "posicao": "16º"
-        },
+          "classificacao": "16"        },
         {
           "concurso": "Auditor Fiscal - Valinhos",
-          "classificacao": "21",
-          "posicao": "21º"
-        },
+          "classificacao": "21"        },
         {
           "concurso": "Auditor Fiscal - Cajamar",
-          "classificacao": "14",
-          "posicao": "14º"
-        }
+          "classificacao": "14"        }
       ]
     },
     {
@@ -1542,14 +1462,10 @@
       "aprovacoes": [
         {
           "concurso": "SEFAZ-AC",
-          "classificacao": "100",
-          "posicao": "100º"
-        },
+          "classificacao": "100"        },
         {
           "concurso": "PRF",
-          "classificacao": "120",
-          "posicao": "120º"
-        }
+          "classificacao": "120"        }
       ]
     },
     {
@@ -1607,39 +1523,25 @@
       "aprovacoes": [
         {
           "concurso": "SEFAZ/RJ",
-          "classificacao": "12",
-          "posicao": "12º"
-        },
+          "classificacao": "12"        },
         {
           "concurso": "SEFAZ/PR",
-          "classificacao": "20",
-          "posicao": "20º"
-        },
+          "classificacao": "20"        },
         {
           "concurso": "SEFAZ/AC",
-          "classificacao": "17",
-          "posicao": "17º"
-        },
+          "classificacao": "17"        },
         {
           "concurso": "ISS/RJ",
-          "classificacao": "144",
-          "posicao": "144º"
-        },
+          "classificacao": "144"        },
         {
           "concurso": "ISS/Ribeirão Preto",
-          "classificacao": "12",
-          "posicao": "12º"
-        },
+          "classificacao": "12"        },
         {
           "concurso": "ISS/ São José dos Campos",
-          "classificacao": "5",
-          "posicao": "5º"
-        },
+          "classificacao": "5"        },
         {
           "concurso": "ISS/ Ribeirão das Neves",
-          "classificacao": "8",
-          "posicao": "8º"
-        }
+          "classificacao": "8"        }
       ]
     },
     {
@@ -1705,7 +1607,6 @@
         {
           "concurso": "Advogado da Ebserh",
           "classificacao": "2",
-          "posicao": "2º lugar",
           "categoria": "Ampla",
           "observacao": "1º PCD"
         },
@@ -1772,7 +1673,6 @@
         {
           "concurso": "SEFAZ PR",
           "classificacao": "3",
-          "posicao": "3º",
           "categoria": "PcD",
           "situacao": "AINDA NÃO HOMOLOGADO (RESULTADO PARCIAL)"
         }
@@ -1811,34 +1711,22 @@
       "aprovacoes": [
         {
           "concurso": "Auditor Fiscal ISS Ribeirão Preto",
-          "classificacao": "2",
-          "posicao": "2º"
-        },
+          "classificacao": "2"        },
         {
           "concurso": "Controlador Interno - Câmara Municipal de Paulínia/SP",
-          "classificacao": "1",
-          "posicao": "1º"
-        },
+          "classificacao": "1"        },
         {
           "concurso": "Assistente Legislativo das Comissões - Câmara Municipal de Mauá/SP",
-          "classificacao": "1",
-          "posicao": "1º"
-        },
+          "classificacao": "1"        },
         {
           "concurso": "Técnico Judiciário TJSP",
-          "classificacao": "12",
-          "posicao": "12º"
-        },
+          "classificacao": "12"        },
         {
           "concurso": "Agente Administrativo - Prefeitura de Mauá/SP",
-          "classificacao": "16",
-          "posicao": "16º"
-        },
+          "classificacao": "16"        },
         {
           "concurso": "Oficial Legislativo - Câmara Municipal de Poá/SP",
-          "classificacao": "43",
-          "posicao": "43º"
-        }
+          "classificacao": "43"        }
       ]
     },
     {
@@ -1876,13 +1764,11 @@
         {
           "concurso": "EPPGG - CNU",
           "classificacao": "192",
-          "posicao": "192",
           "situacao": "CR"
         },
         {
           "concurso": "CGM/SP",
           "classificacao": "69",
-          "posicao": "69",
           "situacao": "CR"
         }
       ]
@@ -1917,9 +1803,7 @@
       "aprovacoes": [
         {
           "concurso": "SEFAZ RR",
-          "classificacao": "106",
-          "posicao": "106º"
-        }
+          "classificacao": "106"        }
       ]
     },
     {
