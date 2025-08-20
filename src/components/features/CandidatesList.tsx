@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Filter, Download, FileSpreadsheet } from 'lucide-react';
+import { Search, Filter, FileSpreadsheet } from 'lucide-react';
 import { Input } from '../ui/Input';
 import { Select } from '../ui/Select';
 import { Button } from '../ui/Button';
@@ -16,19 +16,21 @@ interface CandidatesListProps {
 
 export const CandidatesList: React.FC<CandidatesListProps> = ({ specialty }) => {
   const { candidates, loading, error } = useCandidates(specialty);
-  const { exportToExcel, exportToPDF, loading: exportLoading } = useExport();
+  const { exportToExcel, loading: exportLoading } = useExport();
   
   const [filters, setFilters] = useState<FilterState>({
     name: '',
     classification: '',
-    quota: 'all'
+    quota: 'all',
+    sortBy: 'none',
+    sortOrder: 'asc'
   });
   
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
 
   const filteredCandidates = useMemo(() => {
-    return candidates.filter(candidate => {
+    let filtered = candidates.filter(candidate => {
       const matchesName = candidate.nome.toLowerCase().includes(filters.name.toLowerCase()) ||
                          candidate.inscricao.includes(filters.name);
       
@@ -42,6 +44,41 @@ export const CandidatesList: React.FC<CandidatesListProps> = ({ specialty }) => 
 
       return matchesName && matchesClassification && matchesQuota;
     });
+
+    // Apply sorting
+    if (filters.sortBy !== 'none') {
+      filtered = [...filtered].sort((a, b) => {
+        let comparison = 0;
+        
+        switch (filters.sortBy) {
+          case 'ac':
+            comparison = a.ac - b.ac;
+            break;
+          case 'pcd':
+            const aPcd = a.pcd || 999999;
+            const bPcd = b.pcd || 999999;
+            comparison = aPcd - bPcd;
+            break;
+          case 'ni':
+            const aNi = a.ni || 999999;
+            const bNi = b.ni || 999999;
+            comparison = aNi - bNi;
+            break;
+          case 'nota':
+            comparison = b.nota - a.nota; // Higher scores first
+            break;
+          case 'nome':
+            comparison = a.nome.localeCompare(b.nome);
+            break;
+          default:
+            comparison = 0;
+        }
+        
+        return filters.sortOrder === 'desc' ? -comparison : comparison;
+      });
+    }
+
+    return filtered;
   }, [candidates, filters]);
 
   const paginatedCandidates = useMemo(() => {
@@ -55,9 +92,6 @@ export const CandidatesList: React.FC<CandidatesListProps> = ({ specialty }) => 
     await exportToExcel(specialty, filteredCandidates);
   };
 
-  const handleExportPDF = async () => {
-    await exportToPDF(specialty, 'candidates-table');
-  };
 
   if (loading) {
     return (
@@ -104,24 +138,36 @@ export const CandidatesList: React.FC<CandidatesListProps> = ({ specialty }) => 
             { value: 'NI', label: 'Negros e Indígenas' }
           ]}
         />
+        <Select
+          value={filters.sortBy}
+          onChange={(e) => setFilters(prev => ({ ...prev, sortBy: e.target.value as any }))}
+          options={[
+            { value: 'none', label: 'Sem ordenação' },
+            { value: 'ac', label: 'Classificação AC' },
+            { value: 'pcd', label: 'Classificação PCD' },
+            { value: 'ni', label: 'Classificação NI' },
+            { value: 'nota', label: 'Nota' },
+            { value: 'nome', label: 'Nome' }
+          ]}
+        />
+        {filters.sortBy !== 'none' && (
+          <Select
+            value={filters.sortOrder}
+            onChange={(e) => setFilters(prev => ({ ...prev, sortOrder: e.target.value as any }))}
+            options={[
+              { value: 'asc', label: 'Crescente' },
+              { value: 'desc', label: 'Decrescente' }
+            ]}
+          />
+        )}
         <div className="flex space-x-2">
           <Button
             variant="secondary"
             icon={FileSpreadsheet}
             onClick={handleExportExcel}
             loading={exportLoading}
-            className="flex-1"
           >
             Excel
-          </Button>
-          <Button
-            variant="secondary"
-            icon={Download}
-            onClick={handleExportPDF}
-            loading={exportLoading}
-            className="flex-1"
-          >
-            PDF
           </Button>
         </div>
       </div>

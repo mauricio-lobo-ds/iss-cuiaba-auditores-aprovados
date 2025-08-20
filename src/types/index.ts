@@ -32,6 +32,8 @@ export interface FilterState {
   name: string;
   classification: string;
   quota: 'all' | 'AC' | 'PCD' | 'NI';
+  sortBy: 'none' | 'ac' | 'pcd' | 'ni' | 'nota' | 'nome';
+  sortOrder: 'asc' | 'desc';
 }
 
 export type Specialty = 'DIREITO/PROCESSO TRIBUTÁRIO' | 'GESTÃO TRIBUTÁRIA' | 'TECNOLOGIA DA INFORMAÇÃO';

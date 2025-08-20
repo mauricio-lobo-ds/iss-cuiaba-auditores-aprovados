@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefreshCw, Download, FileSpreadsheet, AlertCircle, Play } from 'lucide-react';
+import { RefreshCw, FileSpreadsheet, AlertCircle, Play } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { LoadingSpinner } from '../ui/LoadingSpinner';
 import { Card, CardContent, CardHeader } from '../ui/Card';
@@ -26,7 +26,7 @@ export const CallOrderList: React.FC<CallOrderListProps> = ({ specialty }) => {
     updatePositionType,
     restoreCandidate
   } = useCallOrder(specialty, candidates);
-  const { exportToExcel, exportToPDF, loading: exportLoading } = useExport();
+  const { exportToExcel, loading: exportLoading } = useExport();
 
   const handleReset = async () => {
     if (window.confirm('Tem certeza que deseja resetar a ordem de chamada? Esta ação não pode ser desfeita.')) {
@@ -46,17 +46,6 @@ export const CallOrderList: React.FC<CallOrderListProps> = ({ specialty }) => {
     await exportToExcel(specialty, candidates, callOrderState.positions);
   };
 
-  const handleExportPDF = async () => {
-    await exportToPDF(
-      specialty,
-      'call-order-table',
-      {
-        title: 'Ordem de Chamada',
-        subtitle: 'Conforme os arts. 23 e 24 do Decreto nº 7.436, de 25 de setembro de 2019',
-        removedCandidates: callOrderState.removedCandidates
-      }
-    );
-  };
 
   if (candidatesLoading || callOrderState.loading) {
     return (
@@ -129,14 +118,6 @@ export const CallOrderList: React.FC<CallOrderListProps> = ({ specialty }) => {
             loading={exportLoading}
           >
             Excel
-          </Button>
-          <Button
-            variant="secondary"
-            icon={Download}
-            onClick={handleExportPDF}
-            loading={exportLoading}
-          >
-            PDF
           </Button>
         </div>
       </div>

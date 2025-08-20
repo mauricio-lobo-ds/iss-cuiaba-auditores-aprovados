@@ -88,25 +88,28 @@ export const SpecialtyPage: React.FC = () => {
                 variant={activeTab === 'candidates' ? 'primary' : 'ghost'}
                 icon={List}
                 onClick={() => setActiveTab('candidates')}
-                className="rounded-b-none"
+                className="rounded-b-none flex-1 sm:flex-none"
               >
-                Lista de Aprovados
+                <span className="hidden sm:inline">Lista de Aprovados</span>
+                <span className="sm:hidden">Lista</span>
               </Button>
               <Button
                 variant={activeTab === 'callOrder' ? 'primary' : 'ghost'}
                 icon={Megaphone}
                 onClick={() => setActiveTab('callOrder')}
-                className="rounded-b-none"
+                className="rounded-b-none flex-1 sm:flex-none"
               >
-                Ordem de Chamada
+                <span className="hidden sm:inline">Ordem de Chamada</span>
+                <span className="sm:hidden">Ordem</span>
               </Button>
               <Button
                 variant={activeTab === 'profiles' ? 'primary' : 'ghost'}
                 icon={UserCheck}
                 onClick={() => setActiveTab('profiles')}
-                className="rounded-b-none"
+                className="rounded-b-none flex-1 sm:flex-none"
               >
-                Perfil dos Aprovados
+                <span className="hidden sm:inline">Perfil dos Aprovados</span>
+                <span className="sm:hidden">Perfil</span>
               </Button>
             </div>
           </CardHeader>
