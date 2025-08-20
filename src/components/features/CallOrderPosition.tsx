@@ -76,24 +76,23 @@ export const CallOrderPosition: React.FC<CallOrderPositionProps> = ({
                 { value: 'PCD', label: 'PCD' },
                 { value: 'NI', label: 'NI' }
               ]}
-              className="w-20"
+              className="w-24 text-xs"
             />
-            <Button
-              variant="success"
-              size="sm"
-              icon={Check}
+            <button
               onClick={handleUpdateType}
-            />
-            <Button
-              variant="ghost"
-              size="sm"
+              className="w-4 h-4 text-green-600 hover:text-green-700 inline-flex items-center justify-center"
+            >
+              <Check className="w-3 h-3" />
+            </button>
+            <button
               onClick={() => {
                 setIsEditing(false);
                 setEditingType(position.type);
               }}
+              className="w-4 h-4 text-red-600 hover:text-red-700 inline-flex items-center justify-center"
             >
-              ✕
-            </Button>
+              <X className="w-3 h-3" />
+            </button>
           </div>
         ) : (
           <div className="flex items-center space-x-2">
@@ -101,13 +100,12 @@ export const CallOrderPosition: React.FC<CallOrderPositionProps> = ({
               {position.type}
             </Badge>
             {position.editable && (
-              <Button
-                variant="ghost"
-                size="sm"
-                icon={Edit3}
+              <button
                 onClick={() => setIsEditing(true)}
-                className="opacity-0 group-hover:opacity-100 transition-opacity"
-              />
+                className="opacity-60 hover:opacity-100 transition-opacity w-4 h-4 text-slate-400 hover:text-slate-600 export-hide-pdf inline-flex items-center justify-center align-middle"
+              >
+                <Edit3 className="w-3 h-3" />
+              </button>
             )}
           </div>
         )}
@@ -131,17 +129,16 @@ export const CallOrderPosition: React.FC<CallOrderPositionProps> = ({
         )}
       </td>
       <td className="w-28 px-3 py-2 whitespace-nowrap text-sm text-slate-900 align-middle export-hide-pdf">
-        {position.candidate && (
-          <Button
-            variant="error"
-            size="sm"
-            icon={X}
-            onClick={handleRemoveCandidate}
-            className="opacity-0 group-hover:opacity-100 transition-opacity"
-          >
-            Não assume
-          </Button>
-        )}
+        <div className="flex items-center">
+          {position.candidate && (
+            <button
+              onClick={handleRemoveCandidate}
+              className="opacity-60 hover:opacity-100 transition-opacity w-4 h-4 text-red-400 hover:text-red-600 export-hide-pdf inline-flex items-center justify-center align-middle"
+            >
+              <X className="w-3 h-3" />
+            </button>
+          )}
+        </div>
       </td>
     </tr>
   );

@@ -8,6 +8,10 @@ export class CallOrderService {
     private callOrderUseCase: CallOrderUseCase
   ) {}
 
+  async checkExistingOrder(specialty: Specialty): Promise<CallOrderState | null> {
+    return await this.callOrderRepository.load(specialty);
+  }
+
   async initializeCallOrder(
     specialty: Specialty,
     candidates: Candidate[]

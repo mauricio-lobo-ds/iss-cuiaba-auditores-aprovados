@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefreshCw, Download, FileSpreadsheet, AlertCircle } from 'lucide-react';
+import { RefreshCw, Download, FileSpreadsheet, AlertCircle, Play } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { LoadingSpinner } from '../ui/LoadingSpinner';
 import { Card, CardContent, CardHeader } from '../ui/Card';
@@ -19,7 +19,9 @@ export const CallOrderList: React.FC<CallOrderListProps> = ({ specialty }) => {
   const {
     callOrderState,
     error: callOrderError,
+    hasOrder,
     resetCallOrder,
+    generateFreshOrder,
     removeCandidate,
     updatePositionType,
     restoreCandidate
@@ -29,6 +31,14 @@ export const CallOrderList: React.FC<CallOrderListProps> = ({ specialty }) => {
   const handleReset = async () => {
     if (window.confirm('Tem certeza que deseja resetar a ordem de chamada? Esta ação não pode ser desfeita.')) {
       await resetCallOrder();
+    }
+  };
+
+  const handleGenerateFresh = async () => {
+    if (hasOrder && window.confirm('Tem certeza que deseja gerar uma nova ordem de chamada? Esta ação irá limpar todos os dados salvos e recalcular a ordem.')) {
+      await generateFreshOrder();
+    } else if (!hasOrder) {
+      await generateFreshOrder();
     }
   };
 
@@ -71,6 +81,28 @@ export const CallOrderList: React.FC<CallOrderListProps> = ({ specialty }) => {
     );
   }
 
+  if (!hasOrder) {
+    return (
+      <div className="space-y-6">
+        <div className="text-center py-16">
+          <Play className="w-20 h-20 text-green-500 mx-auto mb-6" />
+          <p className="text-slate-600 mb-8 text-lg">
+            Clique para gerar a ordem de chamada para {specialty}
+          </p>
+          <Button
+            variant="primary"
+            icon={Play}
+            onClick={handleGenerateFresh}
+            className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg"
+            loading={callOrderState.loading}
+          >
+            Gerar Ordem
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6">
       {/* Header Actions */}
@@ -81,7 +113,7 @@ export const CallOrderList: React.FC<CallOrderListProps> = ({ specialty }) => {
             Primeiros 20 candidatos na ordem de chamada para {specialty}
           </p>
         </div>
-        <div className="flex space-x-2">
+        <div className="flex flex-wrap space-x-2 gap-2">
           <Button
             variant="ghost"
             icon={RefreshCw}
@@ -146,7 +178,7 @@ export const CallOrderList: React.FC<CallOrderListProps> = ({ specialty }) => {
                     Nota
                   </th>
                   <th className="w-28 px-3 py-2 text-left text-xs font-medium text-slate-500 uppercase tracking-wider export-hide-pdf">
-                    Ações
+                    Não Assume
                   </th>
                 </tr>
               </thead>
