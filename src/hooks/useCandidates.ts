@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Candidate, Specialty } from '../types';
 import { CandidateService } from '../services/CandidateService';
-import { CSVCandidateRepository } from '../infrastructure/repositories/CSVCandidateRepository';
+import { StaticCandidateRepository } from '../infrastructure/repositories/StaticCandidateRepository';
 
-const candidateRepository = new CSVCandidateRepository();
+const candidateRepository = new StaticCandidateRepository();
 const candidateService = new CandidateService(candidateRepository);
 
 export const useCandidates = (specialty?: Specialty) => {

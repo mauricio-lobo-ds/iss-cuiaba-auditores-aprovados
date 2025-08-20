@@ -14,7 +14,7 @@ interface CandidateProfilesProps {
 export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty }) => {
   const { candidates, loading: candidatesLoading } = useCandidates(specialty);
   const { callOrderState } = useCallOrder(specialty, candidates);
-  const { getProfile, formatFormacao, formatExperiencia, formatAprovacoes, loading: profilesLoading } = useApprovedProfiles();
+  const { getProfile, formatFormacao, formatExperiencia, formatAprovacoes, getExperienciaDetails, loading: profilesLoading } = useApprovedProfiles();
 
   const calledCandidates = callOrderState.positions
     .filter(pos => pos.candidate !== null)
@@ -38,7 +38,7 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pb-8">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold text-slate-900">
           Perfil dos Candidatos Chamados
@@ -48,9 +48,27 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
         </Badge>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div id="candidate-profiles-content" className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {calledCandidates.map((candidate, index) => {
           const profile = getProfile(candidate.nome);
+          const experienciaDetails = profile ? getExperienciaDetails(profile.experiencia_profissional) : null;
+          
+          // Calcular idade
+          const calculateAge = (birthDate: string): number => {
+            const [day, month, year] = birthDate.split('/').map(Number);
+            const birth = new Date(year, month - 1, day);
+            const today = new Date();
+            let age = today.getFullYear() - birth.getFullYear();
+            const monthDiff = today.getMonth() - birth.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+              age--;
+            }
+            
+            return age;
+          };
+          
+          const age = calculateAge(candidate.nascimento);
           
           return (
             <Card key={candidate.inscricao} className="hover:shadow-md transition-shadow">
@@ -75,26 +93,32 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
                 <div className="flex items-center space-x-2">
                   <Calendar className="w-4 h-4 text-slate-400" />
                   <span className="text-sm text-slate-600">
-                    {candidate.nascimento}
+                    {candidate.nascimento} ({age} anos)
                   </span>
                 </div>
 
                 {/* Formação */}
                 <div className="flex items-start space-x-2">
-                  <GraduationCap className="w-4 h-4 text-slate-400 mt-0.5" />
+                  <GraduationCap className="w-4 h-4 text-blue-500 mt-0.5" />
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 uppercase tracking-wide">
                       Formação
                     </p>
-                    <p className="text-sm text-slate-700">
-                      {profile ? formatFormacao(profile.formacao) : (candidate.formacao || 'Não informado')}
-                    </p>
+                    <div className="text-sm text-slate-700">
+                      {profile ? (
+                        formatFormacao(profile.formacao).split('\n').map((linha, i) => (
+                          <p key={i} className="mb-1 last:mb-0">{linha}</p>
+                        ))
+                      ) : (
+                        <p>{candidate.formacao || 'Não informado'}</p>
+                      )}
+                    </div>
                   </div>
                 </div>
 
                 {/* Experiência */}
                 <div className="flex items-start space-x-2">
-                  <Briefcase className="w-4 h-4 text-slate-400 mt-0.5" />
+                  <Briefcase className="w-4 h-4 text-blue-500 mt-0.5" />
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 uppercase tracking-wide">
                       Experiência
@@ -102,47 +126,79 @@ export const CandidateProfiles: React.FC<CandidateProfilesProps> = ({ specialty 
                     <p className="text-sm text-slate-700">
                       {profile ? formatExperiencia(profile.experiencia_profissional) : (candidate.experiencia || 'Não informado')}
                     </p>
+                    
+                    {/* Atividades */}
+                    {experienciaDetails?.activities.length > 0 && (
+                      <div className="mt-2">
+                        <p className="text-xs text-slate-500 mb-1">Principais atividades:</p>
+                        <div className="space-y-0.5">
+                          {experienciaDetails.activities.map((atividade, i) => (
+                            <p key={i} className="text-xs text-slate-600">
+                              • {atividade}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Expertise dentro da experiência */}
+                    {experienciaDetails?.expertise.length > 0 && (
+                      <div className="mt-2">
+                        <p className="text-xs text-slate-500 mb-1">Expertise profissional:</p>
+                        <div className="space-y-0.5">
+                          {experienciaDetails.expertise.map((exp, i) => (
+                            <p key={i} className="text-xs text-slate-600">
+                              • {exp}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Sistemas */}
+                    {experienciaDetails?.systems.length > 0 && (
+                      <div className="mt-2">
+                        <p className="text-xs text-slate-500 mb-1">Sistemas/Tecnologias:</p>
+                        <p className="text-xs text-slate-600">
+                          {experienciaDetails.systems.join(', ')}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Expertise geral (dentro da experiência) */}
+                    {profile?.expertise && profile.expertise.length > 0 && (
+                      <div className="mt-2">
+                        <p className="text-xs text-slate-500 mb-1">Expertise geral:</p>
+                        <div className="space-y-0.5">
+                          {profile.expertise.map((exp, i) => (
+                            <p key={i} className="text-xs text-slate-600">
+                              • {exp}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 {/* Aprovações */}
                 <div className="flex items-start space-x-2">
-                  <Award className="w-4 h-4 text-slate-400 mt-0.5" />
+                  <Award className="w-4 h-4 text-green-500 mt-0.5" />
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 uppercase tracking-wide">
                       Aprovações
                     </p>
-                    <p className="text-sm text-slate-700">
-                      {profile ? formatAprovacoes(profile.aprovacoes) : (candidate.aprovacoes || 'Não informado')}
-                    </p>
+                    <div className="text-sm text-slate-700">
+                      {profile ? (
+                        formatAprovacoes(profile.aprovacoes).split('\n').map((linha, i) => (
+                          <p key={i} className="mb-1 last:mb-0">{linha}</p>
+                        ))
+                      ) : (
+                        <p>{candidate.aprovacoes || 'Não informado'}</p>
+                      )}
+                    </div>
                   </div>
                 </div>
-
-                {/* Expertise (se disponível no JSON) */}
-                {profile?.expertise && profile.expertise.length > 0 && (
-                  <div className="flex items-start space-x-2">
-                    <div className="w-4 h-4 text-slate-400 mt-0.5 flex items-center justify-center">
-                      <div className="w-2 h-2 bg-slate-400 rounded-full" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-xs text-slate-500 uppercase tracking-wide">
-                        Expertise
-                      </p>
-                      <div className="space-y-1">
-                        {profile.expertise.slice(0, 2).map((exp, i) => (
-                          <p key={i} className="text-xs text-slate-600">
-                            • {exp}
-                          </p>
-                        ))}
-                        {profile.expertise.length > 2 && (
-                          <p className="text-xs text-slate-500 italic">
-                            +{profile.expertise.length - 2} mais...
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                )}
               </CardContent>
             </Card>
           );

@@ -6,17 +6,11 @@ export interface ProfileFormacao {
 }
 
 export interface ProfileExperiencia {
-  empresa: string;
-  cargo: string;
-  tempo_exercicio?: string;
-  atividades?: string[];
+  [key: string]: any; // Interface totalmente dinâmica para capturar qualquer campo
 }
 
 export interface ProfileAprovacao {
-  concurso: string;
-  cargo?: string;
-  classificacao: string;
-  posicao?: string;
+  [key: string]: any; // Interface totalmente dinâmica para capturar qualquer campo
 }
 
 export interface ApprovedProfile {
@@ -40,9 +34,16 @@ export const useApprovedProfiles = () => {
     const loadProfiles = async () => {
       try {
         setLoading(true);
-        // Importar o JSON diretamente
-        const jsonModule = await import('../data/aprovados-info.json');
-        const data: ApprovedData = jsonModule.default;
+        // Usar fetch para carregar do arquivo público (funciona na build)
+        const response = await fetch('/aprovados-info.json', {
+          headers: { 'Cache-Control': 'no-cache' }
+        });
+        
+        if (!response.ok) {
+          throw new Error('Erro ao carregar dados dos perfis');
+        }
+
+        const data: ApprovedData = await response.json();
         
         // Criar um Map indexado pelo nome completo
         const profilesMap = new Map<string, ApprovedProfile>();
@@ -78,26 +79,91 @@ export const useApprovedProfiles = () => {
         'doutorado': 'Doutorado'
       };
       return `${tipoMap[f.tipo]}: ${f.curso}`;
-    }).join('; ');
+    }).join('\n');
   };
 
   const formatExperiencia = (experiencia?: ProfileExperiencia[]): string => {
     if (!experiencia || experiencia.length === 0) return 'Não informado';
     
     return experiencia.map(exp => {
-      const tempo = exp.tempo_exercicio ? ` (${exp.tempo_exercicio})` : '';
-      return `${exp.cargo} - ${exp.empresa}${tempo}`;
-    }).join('; ');
+      const parts: string[] = [];
+      
+      // Lista de campos a ignorar (arrays ou objetos complexos tratados separadamente)
+      const ignoredFields = ['atividades', 'expertise', 'sistemas'];
+      
+      // Capturar todos os campos string do objeto
+      Object.entries(exp).forEach(([key, value]) => {
+        if (ignoredFields.includes(key)) return;
+        
+        if (typeof value === 'string' && value.trim()) {
+          let fieldName = key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
+          // Trocar "Empresa" por "Instituição"
+          if (fieldName === 'Empresa') {
+            fieldName = 'Instituição';
+          }
+          parts.push(`${fieldName}: ${value}`);
+        }
+      });
+      
+      return parts.length > 0 ? parts.join(' | ') : 'Experiência informada';
+    }).join(' • ');
+  };
+
+  const getExperienciaDetails = (experiencia?: ProfileExperiencia[]) => {
+    if (!experiencia || experiencia.length === 0) return { activities: [], expertise: [], systems: [] };
+    
+    const details = {
+      activities: [] as string[],
+      expertise: [] as string[],
+      systems: [] as string[]
+    };
+    
+    experiencia.forEach(exp => {
+      // Capturar atividades
+      if (exp.atividades && Array.isArray(exp.atividades)) {
+        details.activities.push(...exp.atividades);
+      }
+      
+      // Capturar expertise (pode estar dentro de experiencia_profissional ou no nível raiz)
+      if (exp.expertise && Array.isArray(exp.expertise)) {
+        details.expertise.push(...exp.expertise);
+      }
+      
+      // Capturar sistemas
+      if (exp.sistemas && Array.isArray(exp.sistemas)) {
+        details.systems.push(...exp.sistemas);
+      }
+    });
+    
+    return details;
   };
 
   const formatAprovacoes = (aprovacoes?: ProfileAprovacao[]): string => {
     if (!aprovacoes || aprovacoes.length === 0) return 'Não informado';
     
     return aprovacoes.map(aprov => {
-      const cargo = aprov.cargo ? ` - ${aprov.cargo}` : '';
-      const posicao = aprov.posicao ? ` (${aprov.posicao})` : ` (${aprov.classificacao}º)`;
-      return `${aprov.concurso}${cargo}${posicao}`;
-    }).join('; ');
+      const parts: string[] = [];
+      
+      // Capturar todos os campos dinamicamente
+      Object.entries(aprov).forEach(([key, value]) => {
+        if (typeof value === 'string' && value.trim()) {
+          if (key === 'concurso') {
+            parts.unshift(value); // Concurso vem primeiro
+          } else if (key === 'cargo') {
+            parts.push(value);
+          } else if (key === 'classificacao') {
+            const posicaoFormatted = aprov.posicao || `${value}º`;
+            parts.push(`(${posicaoFormatted})`);
+          } else if (key !== 'posicao') {
+            // Outros campos que possam existir
+            const fieldName = key.charAt(0).toUpperCase() + key.slice(1);
+            parts.push(`${fieldName}: ${value}`);
+          }
+        }
+      });
+      
+      return parts.join(' - ');
+    }).join('\n');
   };
 
   return {
@@ -107,6 +173,7 @@ export const useApprovedProfiles = () => {
     getProfile,
     formatFormacao,
     formatExperiencia,
-    formatAprovacoes
+    formatAprovacoes,
+    getExperienciaDetails
   };
 };
