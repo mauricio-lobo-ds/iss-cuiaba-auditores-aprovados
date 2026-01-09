@@ -1,6 +1,56 @@
 {
   "profissionais": [
     {
+      "nome": "Herbert Meneses Carvalho",
+      "formacao": [
+        {
+          "curso": "Engenharia Civil",
+          "tipo": "graduacao",
+          "instituicao": "UFPI"
+        },
+        {
+          "curso": "Direito Tributário",
+          "tipo": "pos_graduacao"
+        }
+      ],
+      "experiencia_profissional": [
+        {
+          "empresa": "TJ-SP",
+          "cargo": "Escrevente Técnico Judiciário",
+          "tempo_exercicio": "3 anos"
+        },
+        {
+          "empresa": "ISS Santos",
+          "cargo": "Auditor Fiscal de Tributos Municipais",
+          "tempo_exercicio": "1 ano e 3 meses",
+          "atividades": [
+            "Análise e lançamento de DIFAL de optantes do Simples Nacional",
+            "Fiscalização de ISS na Construção Civil"
+          ]
+        }
+      ],
+      "aprovacoes": [
+        {
+          "concurso": "SEFAZ-AC",
+          "cargo": "AFTE",
+          "classificacao": "28",
+          "categoria": "AC"
+        },
+        {
+          "concurso": "ISS Santos",
+          "cargo": "AFTM",
+          "classificacao": "2",
+          "categoria": "N"
+        },
+        {
+          "concurso": "ISS São Bernardo do Campo",
+          "cargo": "AFTM",
+          "classificacao": "3",
+          "categoria": "N"
+        }
+      ]
+    },
+    {
       "nome": "Rachid Elias Arab",
       "formacao": [
         {
