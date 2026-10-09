@@ -95,20 +95,26 @@
       ],
       "experiencia_profissional": [
         {
-          "empresa": "Departamento de Polícia Rodoviária Federal",
-          "cargo": "Policial"
+          "empresa": "PRF",
+          "cargo": "Policial",
+          "tempo_exercicio": "5 anos",
+          "atividades": [
+            "Atividade fim de policiamento e fiscalização"
+          ]
         }
-      ],
-      "expertise": [
-        "Conhecimento avançado em Excel a partir da utilização de linguagem VBA e VB.NET",
-        "Conhecimento básico de Python",
-        "Conhecimento intermediário em projetos de automação a partir do software Home Assistant",
-        "Conhecimento intermediário no uso de ferramentas de IA, como ChatGPT e Google Gemini"
       ],
       "aprovacoes": [
         {
-          "concurso": "PRF",
-          "classificacao": "412"
+          "concurso": "SEFAZ/PI",
+          "classificacao": "28"
+        },
+        {
+          "concurso": "SEFAZ/RN",
+          "classificacao": "52"
+        },
+        {
+          "concurso": "SEFAZ/PB",
+          "classificacao": "325"
         }
       ]
     },
@@ -377,90 +383,63 @@
       "nome": "Jonadas Pires De Souza",
       "formacao": [
         {
-          "curso": "Filosofia",
-          "tipo": "graduacao",
-          "ano_conclusao": "2002"
-        },
-        {
           "curso": "Farmácia",
-          "tipo": "graduacao",
-          "ano_conclusao": "2008"
-        },
-        {
-          "curso": "Análise Clínica Farmacológica",
-          "tipo": "pos_graduacao",
-          "ano_conclusao": "2010"
+          "tipo": "graduacao"
         },
         {
           "curso": "Gestão Pública",
-          "tipo": "pos_graduacao",
-          "ano_conclusao": "2024"
+          "tipo": "pos_graduacao"
+        },
+        {
+          "curso": "Auditoria Fiscal",
+          "tipo": "pos_graduacao"
         },
         {
           "curso": "Direito Tributário",
-          "tipo": "pos_graduacao",
-          "ano_conclusao": "2024"
-        },
-        {
-          "curso": "Auditoria",
-          "tipo": "pos_graduacao",
-          "ano_conclusao": "2024"
+          "tipo": "pos_graduacao"
         }
       ],
       "experiencia_profissional": [
         {
-          "empresa": "Drogaria Souza Ltda (São Luis de Montes Belos - GO)",
-          "cargo": "Responsável Técnico - Farmacêutico",
-          "periodo": "2009 a 2013"
-        },
-        {
-          "empresa": "Drogaria Souza Regional (São Luis de Montes Belos - GO)",
-          "cargo": "Responsável Técnico e Gerente",
-          "periodo": "2009 a 2013",
+          "empresa": "Drogaria Souza",
+          "cargo": "Administrador",
+          "tempo_exercicio": "5 anos",
           "atividades": [
-            "gerenciamento",
-            "atividades farmacêuticas"
+            "Gestão de negócios e de pessoas"
           ]
         },
         {
-          "empresa": "Drogaria Rio da Prata Ltda (São Luis de Montes Belos - GO)",
-          "cargo": "Sócio Administrador",
-          "periodo": "2013 a 2017",
+          "empresa": "Drogafarma Popular",
+          "cargo": "Administrador",
+          "tempo_exercicio": "7 anos",
           "atividades": [
-            "administração da empresa",
-            "atividades farmacêuticas"
+            "Gestão de negócios e de pessoas"
           ]
         },
         {
-          "empresa": "Droga Farma Popular (Querência - MT)",
-          "cargo": "Sócio Administrador",
-          "periodo": "2017 a 2024",
+          "empresa": "Receita Estadual do Paraná",
+          "cargo": "Auditor Fiscal",
+          "tempo_exercicio": "1 ano",
           "atividades": [
-            "administração da empresa",
-            "atividades farmacêuticas"
+            "Fiscalização"
           ]
         }
       ],
       "aprovacoes": [
         {
-          "concurso": "ISS/CUIABA",
-          "classificacao": "7"
-        },
-        {
-          "concurso": "ISS/RJ",
-          "classificacao": "301"
-        },
-        {
-          "concurso": "SEFAZ/PARANA",
-          "classificacao": "14"
-        },
-        {
-          "concurso": "SEFAZ/ACRE",
+          "concurso": "SEFAZ/AC",
+          "cargo": "Auditor Fiscal",
           "classificacao": "36"
         },
         {
-          "concurso": "SEFAZ/MG",
-          "classificacao": "769"
+          "concurso": "SEFAZ/PR",
+          "cargo": "Auditor Fiscal",
+          "classificacao": "17"
+        },
+        {
+          "concurso": "SEFAZ/MT",
+          "cargo": "Auditor Fiscal",
+          "classificacao": "25"
         }
       ]
     },
@@ -1109,74 +1088,76 @@
         {
           "curso": "Direito",
           "tipo": "graduacao",
-          "instituicao": "UFMS"
+          "instituicao": "UFMS",
+          "ano_conclusao": "2017"
         },
         {
           "curso": "Mestrado em Direito",
           "tipo": "mestrado",
-          "instituicao": "UFMS"
+          "instituicao": "UFMS",
+          "ano_conclusao": "2020"
         },
         {
-          "curso": "Direito e Processo Tributário",
+          "curso": "Direito Tributário e Processo Tributário",
           "tipo": "pos_graduacao",
-          "modalidade": "lato sensu"
+          "ano_conclusao": "2023"
+        },
+        {
+          "curso": "Advocacia da Fazenda Pública",
+          "tipo": "pos_graduacao",
+          "ano_conclusao": "2023"
         },
         {
           "curso": "Direito Público",
           "tipo": "pos_graduacao",
-          "modalidade": "lato sensu"
-        },
-        {
-          "curso": "Advocacia na Fazenda Pública",
-          "tipo": "pos_graduacao",
-          "modalidade": "lato sensu"
+          "ano_conclusao": "2022"
         }
       ],
       "experiencia_profissional": [
         {
-          "empresa": "TJ-MS",
-          "cargo": "Analista judiciário (área-fim)",
-          "tempo_exercicio": "4 anos",
-          "lotacao": "vice-presidência",
-          "situacao": "cargo atual"
+          "empresa": "Tribunal Regional Federal da 3ª Região (TRF3)",
+          "cargo": "Analista Judiciário - Área Judiciária",
+          "periodo": "desde janeiro de 2026",
+          "atividades": [
+            "Assessoramento direto a juiz federal",
+            "Exame jurídico de processos",
+            "Elaboração de minutas de despachos, decisões e sentenças"
+          ]
         },
         {
-          "empresa": "Escritório próprio",
-          "cargo": "Advogado (sócio-administrador)",
-          "tempo_exercicio": "2 anos"
+          "empresa": "Tribunal de Justiça de Mato Grosso do Sul (TJMS)",
+          "cargo": "Analista Judiciário (área-fim)",
+          "periodo": "2021 a janeiro de 2026",
+          "atividades": [
+            "Rotinas de trabalho relacionadas à tramitação processual"
+          ]
+        },
+        {
+          "empresa": "Matos Reis Aranha Advogados",
+          "cargo": "Sócio e advogado",
+          "periodo": "2019 a 2021",
+          "atividades": [
+            "Atuação em Direito Público, com ênfase em Direito Administrativo e Tributário"
+          ]
         }
-      ],
-      "expertise": [
-        "produção de diversos artigos científicos",
-        "capítulos de livros",
-        "organização de eventos jurídicos",
-        "participação na Constituição Comentada do Estado do MS",
-        "curso de extensão MEGE de 100 horas para advocacia pública",
-        "facilidade com escrita, análise, elaboração de pareceres",
-        "idiomas: inglês e espanhol",
-        "sistemas e programas jurídicos: Excel, Word, Windows, sistemas de tribunais e pesquisas"
-      ],
-      "formacao_complementar": [
-        "estágio na Procuradoria da Fazenda Nacional"
       ],
       "aprovacoes": [
         {
-          "concurso": "Auditor Fiscal (Cuiabá)",
-          "situacao": "aprovado"
+          "concurso": "Analista Judiciário - TJMS",
+          "situacao": "aprovado, empossado e ex-servidor"
         },
         {
-          "concurso": "Analista judiciário (área-fim) TJ-MS",
-          "situacao": "em exercício"
+          "concurso": "Analista Judiciário - TJSC",
+          "situacao": "aprovado; desistência da nomeação"
         },
         {
-          "concurso": "Analista jurídico MP-MS",
-          "classificacao": "116"        },
+          "concurso": "Analista Judiciário - MPMS",
+          "situacao": "aprovado; desistência da nomeação"
+        },
         {
-          "concurso": "Analista jurídico TJ-SC",
-          "classificacao": "57"        },
-        {
-          "concurso": "Analista jurídico TRE-MS",
-          "classificacao": "9"        }
+          "concurso": "Analista Judiciário - TRF3",
+          "situacao": "aprovado e atualmente em exercício"
+        }
       ]
     },
     {
@@ -1206,48 +1187,41 @@
           "curso": "Banco de Dados",
           "tipo": "pos_graduacao",
           "instituicao": "Unicamp",
-          "status": "concluindo",
-          "previsao_termino": "dezembro/2025"
+          "status": "em conclusão"
         }
       ],
       "experiencia_profissional": [
         {
-          "empresa": "BRB",
-          "area": "demandas relacionadas a dados em ambiente bancário",
-          "tempo_exercicio": "2 anos"
+          "empresa": "Banco de Brasília - BRB",
+          "cargo": "Analista",
+          "periodo": "2021-2022",
+          "atividades": [
+            "Controladoria, metas, análises de dados (Excel/VBA/Python), bancos de dados"
+          ]
         },
         {
-          "empresa": "CGU",
-          "area": "grandes bancos de dados públicos",
-          "tempo_exercicio": "3 anos"
+          "empresa": "Controladoria Geral da União - CGU",
+          "cargo": "Auditor Federal",
+          "periodo": "2022-2026",
+          "atividades": [
+            "Auditorias em previdência e programas sociais",
+            "Uso do CGU Data (SQL Server)"
+          ]
         }
-      ],
-      "expertise": [
-        "Excel avançado",
-        "VBA",
-        "Python",
-        "Power BI",
-        "Storytelling com dados",
-        "MySQL",
-        "Oracle DB",
-        "SQL Server",
-        "PostgreSQL",
-        "NoSQL",
-        "Estatística",
-        "Inteligência artificial",
-        "Big Data",
-        "Inglês avançado (diploma Michigan)",
-        "Gerenciamento de riscos",
-        "Planejamento de metas"
       ],
       "aprovacoes": [
         {
-          "concurso": "Banco de Brasília (BRB)",
-          "classificacao": "59"        },
+          "concurso": "BRB",
+          "classificacao": "59"
+        },
         {
-          "concurso": "Controladoria Geral da União (CGU)",
-          "especialidade": "TI",
-          "classificacao": "6"        }
+          "concurso": "CGU",
+          "classificacao": "6"
+        },
+        {
+          "concurso": "TCU",
+          "classificacao": "31"
+        }
       ]
     },
     {
@@ -1419,31 +1393,44 @@
       "nome": "Rykchard Navarro Lorca",
       "formacao": [
         {
-          "curso": "Tecnologia em Comércio Exterior",
+          "curso": "Comércio Exterior",
           "tipo": "graduacao"
         },
         {
-          "curso": "TI",
+          "curso": "Tecnologia da Informação",
           "tipo": "pos_graduacao"
         }
       ],
       "experiencia_profissional": [
         {
-          "empresa": "Governo Federal / MGI",
-          "cargo": "Analista em Tecnologia da Informação ATI",
-          "tempo_exercicio": "menos de 1 ano",
-          "atividades": [
-            "planejamento, supervisão, coordenação e controle dos recursos de tecnologia da informação relativos ao funcionamento da administração pública federal"
-          ]
+          "empresa": "Ministério do Meio Ambiente",
+          "cargo": "Analista em Tecnologia da Informação",
+          "tempo_exercicio": "1 ano"
         }
       ],
       "aprovacoes": [
         {
-          "concurso": "Analista em Tecnologia da Informação",
-          "classificacao": "4"        },
+          "concurso": "Agente Administrativo - Câmara Municipal de Rondonópolis",
+          "classificacao": "1",
+          "categoria": "PCD"
+        },
         {
-          "concurso": "Agente Administrativo - Câmara de Rondonópolis",
-          "classificacao": "1"        }
+          "concurso": "Analista em Tecnologia da Informação",
+          "classificacao": "300",
+          "categoria": "Ampla"
+        },
+        {
+          "concurso": "IBGE",
+          "cargo": "Analista TI"
+        },
+        {
+          "concurso": "Ministério da Agricultura e Pecuária",
+          "cargo": "Analista TI"
+        },
+        {
+          "concurso": "Analista em Políticas Públicas e Sociais",
+          "cargo": "TI"
+        }
       ]
     },
     {
@@ -1736,47 +1723,70 @@
           "tipo": "graduacao"
         },
         {
-          "curso": "Auditoria e Controladoria no Setor Público",
+          "curso": "Direito Tributário",
           "tipo": "pos_graduacao"
         },
         {
-          "curso": "Direito Tributário",
+          "curso": "Auditoria e Controladoria no Setor Público",
           "tipo": "pos_graduacao"
         }
       ],
       "experiencia_profissional": [
         {
-          "area": "serviço público",
-          "tempo_exercicio": "mais de 10 anos",
-          "detalhamento": [
-            "3 anos no Poder Executivo municipal",
-            "7 anos no poder legislativo municipal"
-          ],
+          "empresa": "Câmara Municipal de Mauá/SP",
+          "cargo": "Assistente Legislativo das Comissões",
+          "periodo": "2022-2026",
           "atividades": [
-            "elaboração de proposições",
-            "assessoria direta às comissões parlamentares quanto a aspectos técnicos e jurídicos de proposições legislativas"
+            "Assessoramento Técnico Legislativo a Parlamentares",
+            "Processo Legislativo, elaboração e tramitação de proposituras",
+            "Análise de legislações",
+            "Controle de prazos e processos"
+          ]
+        },
+        {
+          "empresa": "Câmara Municipal de Poá/SP",
+          "cargo": "Oficial Legislativo",
+          "periodo": "2018-2022",
+          "atividades": [
+            "Assessoramento técnico Legislativo à Presidência da Câmara",
+            "Elaboração de proposituras",
+            "Controle de prazos e processos"
           ]
         }
       ],
       "aprovacoes": [
         {
-          "concurso": "Auditor Fiscal ISS Ribeirão Preto",
-          "classificacao": "2"        },
+          "concurso": "Auditor Fiscal da Receita Estadual - SEFAZ/SP",
+          "classificacao": "172"
+        },
+        {
+          "concurso": "Auditor Fiscal da Prefeitura Municipal de Mauá/SP",
+          "classificacao": "56"
+        },
+        {
+          "concurso": "Auditor Fiscal da Receita Municipal - ISS Ribeirão Preto",
+          "classificacao": "2"
+        },
         {
           "concurso": "Controlador Interno - Câmara Municipal de Paulínia/SP",
-          "classificacao": "1"        },
+          "classificacao": "1"
+        },
         {
           "concurso": "Assistente Legislativo das Comissões - Câmara Municipal de Mauá/SP",
-          "classificacao": "1"        },
-        {
-          "concurso": "Técnico Judiciário TJSP",
-          "classificacao": "12"        },
-        {
-          "concurso": "Agente Administrativo - Prefeitura de Mauá/SP",
-          "classificacao": "16"        },
+          "classificacao": "1"
+        },
         {
           "concurso": "Oficial Legislativo - Câmara Municipal de Poá/SP",
-          "classificacao": "43"        }
+          "classificacao": "38"
+        },
+        {
+          "concurso": "Escrevente Técnico Judiciário - TJSP (São José dos Campos)",
+          "classificacao": "12"
+        },
+        {
+          "concurso": "Agente Administrativo - Prefeitura Municipal de Mauá/SP",
+          "classificacao": "16"
+        }
       ]
     },
     {
@@ -1785,40 +1795,76 @@
         {
           "curso": "Direito",
           "tipo": "graduacao",
-          "instituicao": "Instituto Presbiteriano Mackenzie"
+          "instituicao": "Instituto Presbiteriano Mackenzie",
+          "periodo": "2002-2006"
         },
         {
           "curso": "Direito Empresarial",
           "tipo": "pos_graduacao",
-          "instituicao": "FGV"
+          "instituicao": "FGV",
+          "periodo": "2007-2009"
         },
         {
           "curso": "MBA em Direito Tributário",
           "tipo": "pos_graduacao",
-          "instituicao": "FGV"
+          "instituicao": "FGV",
+          "periodo": "2013-2015"
         }
       ],
       "experiencia_profissional": [
         {
-          "atividade": "advogado autônomo",
-          "tempo_exercicio": "quase 20 anos",
-          "areas": [
-            "Direito Tributário",
-            "Direito Civil",
-            "Direito Societário",
-            "Direito de Família"
+          "empresa": "Troyano e Neves Sociedade de Advogados",
+          "cargo": "Consultor Jurídico",
+          "periodo": "julho/2023 até o momento",
+          "atividades": [
+            "Direito Empresarial Contencioso e Consultivo (Cível, Trabalhista e Tributário)"
           ]
+        },
+        {
+          "empresa": "QLA Advogados: Queiroz e Lautenschläger",
+          "cargo": "Advogado associado",
+          "periodo": "janeiro/2021 a junho/2023",
+          "atividades": [
+            "Consultivo e contencioso cível estratégico",
+            "Coordenação de equipe de advogados e estagiários"
+          ]
+        },
+        {
+          "empresa": "Troyano e Neves Sociedade de Advogados",
+          "cargo": "Sócio",
+          "periodo": "janeiro/2020 a janeiro/2021",
+          "atividades": [
+            "Direito Empresarial Contencioso e Consultivo (Cível, Trabalhista e Tributário)"
+          ]
+        },
+        {
+          "empresa": "Dias & Pamplona Advogados",
+          "cargo": "Advogado associado",
+          "periodo": "janeiro/2017 a janeiro/2020",
+          "atividades": [
+            "Consultivo e contencioso cível",
+            "Coordenação de equipe de advogados e estagiários"
+          ]
+        },
+        {
+          "empresa": "Troyano e Neves Sociedade de Advogados",
+          "cargo": "Sócio",
+          "periodo": "agosto/2008 a janeiro/2017",
+          "atividades": [
+            "Direito Empresarial Contencioso e Consultivo (Cível, Trabalhista e Tributário)"
+          ]
+        },
+        {
+          "empresa": "Dias & Pamplona Advogados",
+          "cargo": "Estagiário e Advogado",
+          "periodo": "janeiro/2006 a julho/2008"
         }
       ],
       "aprovacoes": [
         {
-          "concurso": "EPPGG - CNU",
-          "classificacao": "192",
-          "situacao": "CR"
-        },
-        {
-          "concurso": "CGM/SP",
-          "classificacao": "69",
+          "concurso": "SEFAZ RN",
+          "classificacao": "200",
+          "categoria": "AC",
           "situacao": "CR"
         }
       ]
